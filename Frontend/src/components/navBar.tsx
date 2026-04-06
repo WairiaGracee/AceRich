@@ -10,7 +10,6 @@ const NavBar = () => {
     { label: 'ABOUT', to: '/about' },
     { label: 'PROGRAMS', to: '/programs' },
     { label: 'ADMISSIONS', to: '/admissions' },
-    { label: 'BLOG', to: '/blog' },
     { label: 'CONTACT', to: '/contact' }
   ];
 
