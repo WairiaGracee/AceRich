@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'HOME', href: '#' },
-    { label: 'ABOUT', href: '#about' },
-    { label: 'PROGRAMS', href: '#programs' },
-    { label: 'ADMISSIONS', href: '#admissions' },
-    { label: 'BLOG', href: '#blog' },
-    { label: 'CONTACT', href: '#contact' }
+    { label: 'HOME', to: '/' },
+    { label: 'ABOUT', to: '/about' },
+    { label: 'PROGRAMS', to: '/programs' },
+    { label: 'ADMISSIONS', to: '/admissions' },
+    { label: 'BLOG', to: '/blog' },
+    { label: 'CONTACT', to: '/contact' }
   ];
 
   return (
@@ -25,13 +26,13 @@ const NavBar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
-                className="text-sm font-medium text-gray-50 hover:text-green-600 transition-colors"
+                to={item.to}  // <-- changed from href to to
+                className="text-sm font-medium text-gray-50 hover:text-orange-700 transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -60,13 +61,13 @@ const NavBar = () => {
           <div className="md:hidden pb-4 border-t border-gray-200">
             <div className="flex flex-col gap-2 pt-4">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.label}
-                  href={item.href}
+                  to={item.to}
                   className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors font-medium"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
               <button className="mt-4 w-full px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg transition-colors">
                 Apply Now

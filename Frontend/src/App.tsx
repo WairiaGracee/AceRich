@@ -1,13 +1,22 @@
 import React from 'react';
-import NavBar from "./components/navBar";
-import LandingPage from './components/landingpage';
+import { Routes, Route } from "react-router-dom";
+import LandingPage from "./components/landingpage";
+import AboutPage from "./pages/about";
+import NavBar from './components/navBar';
+import CoursesPage from './pages/programs';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <NavBar />
-      <LandingPage />
-    </div>
+    <>
+    <NavBar/>
+
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/programs" element={<CoursesPage />} />
+    </Routes>
+    </>
+
   );
 }
 

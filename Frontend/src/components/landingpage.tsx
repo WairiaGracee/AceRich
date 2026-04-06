@@ -12,6 +12,7 @@ import catering from '../assets/catering.jpg';
 import compPackages from '../assets/compPackages.jpg';
 import packagesAdvanced from '../assets/packagesAdvanced.jpg';
 import baking from '../assets/baking.jpg';
+import { Link } from 'react-router-dom';
 
 
 
@@ -79,9 +80,11 @@ const LandingPage = () => {
               Get Started
             </button>
 
-            <button className="px-8 py-3 bg-aliceBlue text-orange-700 hover:bg-gray-100 font-semibold rounded-lg transition-colors">
+            <Link
+            to="/about" 
+            className="px-8 py-3 bg-aliceBlue text-orange-700 hover:bg-gray-100 font-semibold rounded-lg transition-colors">
               Learn More
-            </button>
+            </Link>
           </div>
         </div>
       </section>
