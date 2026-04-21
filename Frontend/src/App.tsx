@@ -5,6 +5,8 @@ import AboutPage from "./pages/about";
 import NavBar from './components/navBar';
 import CoursesPage from './pages/programs';
 import ContactPage from './pages/contact';
+import AdmissionsPage from './pages/admissions';
+import CourseDetailPage from './pages/coursedetails';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
       <Route path="/about" element={<AboutPage />} />
       <Route path="/programs" element={<CoursesPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/admissions" element={<AdmissionsPage />} />
+      <Route path="/programs/:courseId" element={<CourseDetailPage />} />
     </Routes>
     </>
 
