@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'admissions',
     'contact',
     'newsletter',
+    'students_portal',
+    'admin_panel',
+
+    'rest_framework.authtoken',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +148,13 @@ CONTACT_NOTIFICATION_EMAIL = 'integralsites290@gmail.com'
 
 # ── Timezone ──
 TIME_ZONE = 'Africa/Nairobi'
+
+# ── Authentication ──────────────────────────────────────────
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}

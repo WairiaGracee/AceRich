@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/useAuth';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logout } = useAuth();
   const location = useLocation();
 
   const navItems = [
@@ -43,15 +45,43 @@ const NavBar = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link
-              to="/admissions"
-              className="px-6 py-2 bg-orange-800 hover:bg-orange-900 text-white font-semibold rounded-lg transition-colors"
-            >
-              Apply Now
-            </Link>
-          </div>
+          {/* Desktop right side */}
+<div className="hidden md:flex items-center gap-3">
+  {user ? (
+    <>
+      <span className="text-gray-300 text-sm">
+        Hi, {user.first_name}
+      </span>
+      <Link
+        to={user.is_admin ? '/admin-dashboard' : '/student/dashboard'}
+        className="px-4 py-2 bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg transition-colors text-sm"
+      >
+        Dashboard
+      </Link>
+      <button
+        onClick={logout}
+        className="px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg transition-colors text-sm"
+      >
+        Logout
+      </button>
+    </>
+  ) : (
+    <>
+      <Link
+        to="/login"
+        className="px-4 py-2 text-gray-200 hover:text-white font-medium text-sm transition-colors"
+      >
+        Login
+      </Link>
+      <Link
+        to="/admissions"
+        className="px-6 py-2 bg-orange-800 hover:bg-orange-900 text-white font-semibold rounded-lg transition-colors"
+      >
+        Apply Now
+      </Link>
+    </>
+  )}
+</div>
 
           {/* Mobile Menu Button */}
           <button
